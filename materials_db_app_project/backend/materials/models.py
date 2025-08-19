@@ -1,5 +1,6 @@
 from django.db import models
 from users.models import User
+import uuid
 
 # Create your models here.
 
@@ -19,7 +20,7 @@ class Condition(models.TextChoices):
 
 
 class Item(models.Model):
-    uuid = models.UUIDField()
+    uuid = models.UUIDField(default=uuid.uuid4, unique=True, editable=False)
     name = models.CharField(max_length=100)
     material = models.ForeignKey(Material, related_name='items',
                                  on_delete=models.SET_NULL, blank=True, null=True)
