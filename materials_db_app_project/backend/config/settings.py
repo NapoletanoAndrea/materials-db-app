@@ -77,6 +77,7 @@ INSTALLED_APPS = [
 
     'core',
     'users',
+    'materials'
 ]
 
 # django.contrib.sites
