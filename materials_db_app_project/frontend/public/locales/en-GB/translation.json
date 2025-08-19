@@ -1,0 +1,9 @@
+{
+    "common": { "welcome": "Welcome", "here": "here" },
+    "auth": {
+        "no_account": "Don't have an account?",
+        "login": "Login",
+        "register": "Register",
+        "have_account": "Already have an account?"
+    }
+}

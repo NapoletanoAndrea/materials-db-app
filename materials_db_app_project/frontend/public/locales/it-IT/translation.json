@@ -1,0 +1,12 @@
+{
+    "common": {
+        "welcome": "Benvenuto",
+        "here": "qui"
+    },
+    "auth": {
+        "no_account": "Non hai un account?",
+        "login": "Accedi",
+        "register": "Registrati",
+        "have_account": "Hai già un account?"
+    }
+}

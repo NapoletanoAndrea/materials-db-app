@@ -1,0 +1,41 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.h-flex {
+  display: flex;
+  gap: $medium-space;
+}
+
+.h1 {
+  @include heading($h1-font-size);
+}
+.h2 {
+  @include heading($h2-font-size);
+}
+.h3 {
+  @include heading($h3-font-size);
+}
+.h4 {
+  @include heading($h4-font-size);
+}
+.h5 {
+  @include heading($h5-font-size);
+}
+.h6 {
+  @include heading($h6-font-size);
+}
+
+// ANIMATIONS //
+
+.spinning {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

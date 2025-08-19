@@ -1,0 +1,113 @@
+@use "rootVars" as *;
+@use "functions" as *;
+
+//COLORS//
+
+$light-1: #e9e8e8;
+$light-2: white;
+$light-text: #1a1a1a;
+
+$dark-1: #242424;
+$dark-2: rgb(19, 19, 19);
+$dark-text: #f0f0f0;
+
+$themes: (
+  light: (
+    text: $light-text,
+    bg: $light-1,
+    btn-bg: $light-2,
+    btn_h-bc: #7a7a7a,
+    input-bg: $light-2,
+  ),
+  dark: (
+    text: $dark-text,
+    bg: $dark-1,
+    btn-bg: $dark-2,
+    btn_h-bc: #646cff,
+    input-bg: $dark-2,
+  ),
+);
+
+//SPACING//
+
+$space-1: fluid-clamp($min-space-1, $max-space-1);
+$space-2: fluid-clamp(
+  calc($min-space-1 * $min-space-scaling),
+  calc($max-space-1 * $max-space-scaling)
+);
+$space-3: fluid-clamp(
+  calc($min-space-1 * pow($min-space-scaling, 2)),
+  calc($max-space-1 * pow($max-space-scaling, 2))
+);
+$space-4: fluid-clamp(
+  calc($min-space-1 * pow($min-space-scaling, 3)),
+  calc($max-space-1 * pow($max-space-scaling, 3))
+);
+$space-5: fluid-clamp(
+  calc($min-space-1 * pow($min-space-scaling, 4)),
+  calc($max-space-1 * pow($max-space-scaling, 4))
+);
+$space-6: fluid-clamp(
+  calc($min-space-1 * pow($min-space-scaling, 5)),
+  calc($max-space-1 * pow($max-space-scaling, 5))
+);
+$space-7: fluid-clamp(
+  calc($min-space-1 * pow($min-space-scaling, 6)),
+  calc($max-space-1 * pow($max-space-scaling, 6))
+);
+
+$small-space: $space-1;
+$medium-space: $space-3;
+$large-space: $space-4;
+$very-large-space: $space-7;
+
+//MARGINS PADDINGS GAPS//
+
+$section-margin: 0 0 $large-space 0;
+$section-padding: $large-space 0 0 0;
+
+//TEXT//
+
+$main-text-font-size: fluid-clamp(
+  $main-text-min-font-size,
+  $main-text-max-font-size
+);
+
+$small-text-font-size: fluid-clamp(
+  calc($main-text-min-font-size / $text-min-font-size-scaling),
+  calc($main-text-max-font-size / $text-max-font-size-scaling)
+);
+
+$large-text-font-size: fluid-clamp(
+  calc($main-text-min-font-size * $text-max-font-size-scaling),
+  calc($main-text-max-font-size * $text-max-font-size-scaling)
+);
+
+//HEADINGS//
+
+$h1-font-size: fluid-clamp($h1-min-font-size, $h1-max-font-size);
+$h2-font-size: fluid-clamp(
+  calc($h1-min-font-size / $heading-min-font-size-scaling),
+  calc($h1-max-font-size / $heading-max-font-size-scaling)
+);
+$h3-font-size: fluid-clamp(
+  calc($h1-min-font-size / pow($heading-min-font-size-scaling, 2)),
+  calc($h1-max-font-size / pow($heading-min-font-size-scaling, 2))
+);
+$h4-font-size: fluid-clamp(
+  calc($h1-min-font-size / pow($heading-min-font-size-scaling, 3)),
+  calc($h1-max-font-size / pow($heading-min-font-size-scaling, 3))
+);
+$h5-font-size: fluid-clamp(
+  calc($h1-min-font-size / pow($heading-min-font-size-scaling, 4)),
+  calc($h1-max-font-size / pow($heading-min-font-size-scaling, 4))
+);
+$h6-font-size: fluid-clamp(
+  calc($h1-min-font-size / pow($heading-min-font-size-scaling, 5)),
+  calc($h1-max-font-size / pow($heading-min-font-size-scaling, 5))
+);
+
+$button-padding: $element-padding;
+$button-gap: $medium-space;
+$input-padding: $element-padding;
+$element-border-radius: 8px;

@@ -1,0 +1,30 @@
+@use "sass:map";
+@use "variables" as *;
+
+@mixin themify($themes) {
+  @each $name, $values in $themes {
+    .#{$name} {
+      $theme-map: $values !global;
+      @content;
+    }
+  }
+}
+@function themed($key) {
+  @return map.get($theme-map, $key);
+}
+
+@mixin heading($size) {
+  font-size: $size;
+  margin-bottom: calc($size * 0.5);
+}
+
+@mixin button_style {
+  border-radius: $element-border-radius;
+  padding: $button-padding;
+  font-weight: 500;
+  font-family: inherit;
+  display: flex;
+  gap: $button-gap;
+  transition: outline 0.25s;
+  outline-color: transparent;
+}

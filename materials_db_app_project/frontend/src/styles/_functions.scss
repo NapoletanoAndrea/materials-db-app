@@ -1,0 +1,19 @@
+@function fluid-clamp(
+  $min-value,
+  $max-value,
+  $min-screen: 20,
+  $max-screen: 90
+) {
+  $slope: calc(($max-value - $min-value) / ($max-screen - $min-screen));
+  $intercept: calc($min-value - $slope * $min-screen);
+
+  // Determine the actual min and max values for clamp()
+  $clamp-min: if($min-value < $max-value, $min-value, $max-value);
+  $clamp-max: if($min-value > $max-value, $min-value, $max-value);
+
+  @return clamp(
+    #{$clamp-min}rem,
+    #{$intercept}rem + #{$slope * 100}vw,
+    #{$clamp-max}rem
+  );
+}
