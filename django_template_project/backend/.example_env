@@ -1,0 +1,20 @@
+SECRET_KEY=
+ALLOWED_HOSTS=localhost
+
+DB_HOST=localhost
+DB_PORT=5432
+DB_NAME=
+DB_USER=postgres
+DB_PWD=postgres
+
+DEBUG=True
+
+# If relative path, start with .
+MEDIA_ROOT=.media
+STATIC_ROOT=.static
+
+CSRF_COOKIE_SECURE=False
+SESSION_COOKIE_SECURE=False
+
+EMAIL_HOST_USER=mail@mail.com
+EMAIL_HOST_PASSWORD=...
