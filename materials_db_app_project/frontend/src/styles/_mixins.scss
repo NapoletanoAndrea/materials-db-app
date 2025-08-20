@@ -14,6 +14,7 @@
 }
 
 @mixin heading($size) {
+  font-weight: 700;
   font-size: $size;
   margin-bottom: calc($size * 0.5);
 }

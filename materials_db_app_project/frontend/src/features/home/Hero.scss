@@ -1,0 +1,29 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/functions" as *;
+@use "../../styles/variables" as *;
+
+.hero {
+  width: 100%;
+  padding: 2rem 0;
+}
+
+.hero-heading {
+  width: fit-content;
+  margin: 0 auto;
+  color: transparent;
+  background: linear-gradient(90deg, rgb(55, 36, 36), rgb(112, 39, 39));
+  background-clip: text;
+}
+
+.hero-paragraph {
+  font-size: 1.25rem;
+}
+
+@include themify($themes) {
+  .hero {
+    background-color: themed("alt-bg");
+  }
+  .hero-paragraph {
+    color: themed("text-2");
+  }
+}

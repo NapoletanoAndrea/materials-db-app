@@ -4,14 +4,10 @@
 
 .debug {
   position: fixed;
-  top: 20px;
+  bottom: 20px;
   right: 20px;
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
   align-items: flex-end;
-}
-
-.none {
-  display: none;
 }

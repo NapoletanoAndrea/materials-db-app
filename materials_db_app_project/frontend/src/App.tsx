@@ -48,9 +48,9 @@ export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <div className="debug">
+        <DebugBreakpoints />
         <DebugThemeToggle />
         <DebugLanguageToggle />
-        <DebugBreakpoints />
       </div>
       <AppProvider>
         <BrowserRouter>

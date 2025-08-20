@@ -20,8 +20,9 @@ $main-text-max-font-size: 1rem;
 
 //HEADINGS//
 
-$h1-min-font-size: 3.18;
+$heading-multiplier: 0.75;
+$h1-min-font-size: 3.18 * $heading-multiplier;
 $heading-min-font-size-scaling: 1.26;
 
-$h1-max-font-size: 5.19;
+$h1-max-font-size: 5.19 * $heading-multiplier;
 $heading-max-font-size-scaling: 1.39;

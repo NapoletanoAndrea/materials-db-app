@@ -1,4 +1,5 @@
 import "./utilityClasses.scss";
+import { Filter } from "lucide-react";
 
 export default function StyleSheetPage() {
   return (
@@ -28,9 +29,10 @@ export default function StyleSheetPage() {
       <section id="elements">
         <div className="container">
           <div className="h-flex" style={{ alignItems: "flex-start" }}>
-            <button>Button</button>
+            <button className="btn">Button</button>
             <input placeholder="Input" type="text" />
             <textarea placeholder="Text" />
+            <Filter />
           </div>
         </div>
       </section>
