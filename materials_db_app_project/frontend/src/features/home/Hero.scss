@@ -9,7 +9,6 @@
 
 .hero-heading {
   width: fit-content;
-  margin: 0 auto;
   color: transparent;
   background: linear-gradient(90deg, rgb(55, 36, 36), rgb(112, 39, 39));
   background-clip: text;
@@ -19,11 +18,21 @@
   font-size: 1.25rem;
 }
 
+.hero-point {
+  width: 0.5rem;
+  height: 0.5rem;
+  // margin-top: 0.25rem;
+}
+
 @include themify($themes) {
   .hero {
     background-color: themed("alt-bg");
-  }
-  .hero-paragraph {
     color: themed("text-2");
+  }
+  .hero-point {
+    background-color: themed("main");
+  }
+  .hero-point-label {
+    font-size: 0.85rem;
   }
 }

@@ -5,10 +5,9 @@ function HeroPointLabel({ text = "" }) {
   return (
     <div className="flex gap-2 items-center">
       <div
-        className="w-2 h-2 rounded-full"
-        style={{ backgroundColor: "red" }}
+        className="rounded-full hero-point"
       ></div>
-      <span className="">{text}</span>
+      <span className="hero-point-label">{text}</span>
     </div>
   );
 }
@@ -21,8 +20,9 @@ export function Hero() {
         <p className="hero-paragraph">
           Discover and explore our curated collection of reclaimed materials
         </p>
-        <div className="flex flex-1">
+        <div className="flex flex-1 gap-4">
           <HeroPointLabel text="Sustainable Materials" />
+          <HeroPointLabel text="AI-Powered Analysis" />
         </div>
       </div>
     </div>
