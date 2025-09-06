@@ -34,7 +34,8 @@ MEDIA_ROOT = get_absolute_path(os.getenv('MEDIA_ROOT', '.media'))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-4$!@#&*^%$#@!')
-print("⚠️  WARNING: Using default insecure SECRET_KEY — change this in production!")
+if SECRET_KEY.startswith('django-insecure'):
+    print("⚠️  WARNING: Using default insecure SECRET_KEY — change this in production!")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG').lower() == 'true'
