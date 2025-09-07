@@ -1,9 +1,9 @@
-import { useState } from "react";
+// import { useState } from "react";
 import PageWrapper from "../layout/PageWrapper";
 import Button from "../../components/Button";
 
 export default function TestUpload() {
-  const [currentImage, setCurrentImage] = useState<string>("");
+//   const [currentImage, setCurrentImage] = useState<string>("");
 
   return (
     <PageWrapper>
