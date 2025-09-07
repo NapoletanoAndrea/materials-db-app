@@ -26,15 +26,17 @@ html {
     background-color: themed("bg");
     color: themed("text");
   }
-  button {
+  .btn {
     background-color: themed("btn-bg");
+    outline: 1px solid themed("btn-bc");
   }
   input,
   textarea {
     background-color: themed("input-bg");
   }
-  button:hover {
-    outline: 1px solid themed("btn_h-bc");
+  .btn:hover {
+    background-color: themed("btn_h-bg");
+    // outline: 1px solid themed("btn_h-bc");
   }
 }
 

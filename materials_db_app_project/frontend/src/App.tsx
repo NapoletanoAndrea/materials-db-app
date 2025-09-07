@@ -19,6 +19,7 @@ import {
   breakpoints,
   useBreakpoint,
 } from "./features/responsiveness/breakpoints";
+import TestUploadPage from "./features/upload/TestUploadPage";
 
 const queryClient = new QueryClient();
 
@@ -61,6 +62,14 @@ export default function App() {
                 element={
                   <ProtectedRoute>
                     <HomePage />
+                  </ProtectedRoute>
+                }
+              ></Route>
+              <Route
+                path="/test-upload"
+                element={
+                  <ProtectedRoute>
+                    <TestUploadPage />
                   </ProtectedRoute>
                 }
               ></Route>
