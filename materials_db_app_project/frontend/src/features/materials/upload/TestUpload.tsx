@@ -3,7 +3,7 @@ import PageWrapper from "../../layout/PageWrapper";
 import Button from "../../../components/Button";
 import "./TestUpload.scss";
 import { useMutation } from "@tanstack/react-query";
-import { analyzeImage } from "../api";
+import { analyzeImage, createItem } from "../api";
 import LoadingSpinner from "../../loading/LoadingSpinner";
 
 export default function TestUpload() {
@@ -18,6 +18,14 @@ export default function TestUpload() {
     mutationFn: () => analyzeImage({ image: currentImage as File }),
   });
 
+  const createItemMutation = useMutation<any>({
+    mutationFn: () => {
+      const data = { ...analyzeMutation.data };
+      data["image"] = currentImage;
+      return createItem(data);
+    },
+  });
+
   return (
     <PageWrapper>
       <div className="test-upload">
@@ -30,7 +38,7 @@ export default function TestUpload() {
             gap: "2rem",
           }}
         >
-          {imageUrl && <img style={{ maxWidth: "50rem" }} src={imageUrl} />}
+          {imageUrl && <img style={{ maxWidth: "30rem" }} src={imageUrl} />}
           <div className="test-upload-btns">
             <Button onClick={() => inputRef.current?.click()}>
               Upload Image
@@ -42,13 +50,22 @@ export default function TestUpload() {
           </div>
         </div>
         <div className="test-upload-image-data">
-          {!analyzeMutation.isPending && analyzeMutation.data
-            ? Object.entries(analyzeMutation.data).map(([key, value], i) => (
+          {!analyzeMutation.isPending && analyzeMutation.data ? (
+            <>
+              {Object.entries(analyzeMutation.data).map(([key, value], i) => (
                 <div key={i}>
                   <span>{key + ": " + value}</span>
                 </div>
-              ))
-            : null}
+              ))}
+              <Button
+                onClick={() => {
+                  createItemMutation.mutate();
+                }}
+              >
+                Add to Database
+              </Button>
+            </>
+          ) : null}
         </div>
       </div>
       <input

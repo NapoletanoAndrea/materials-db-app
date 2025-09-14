@@ -2,11 +2,30 @@
 @use "../../../styles/variables" as *;
 
 @include themify($themes) {
+  .items-grid {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .item {
+    max-width: 20rem;
+    // max-height: 20rem;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
   .item-menu {
     border-bottom-left-radius: 0.5rem;
     border-bottom-right-radius: 0.5rem;
     border: 1px solid themed("box1-bc");
     background-color: themed("bg");
     padding: 1rem;
+  }
+
+  .item-image {
+    flex-shrink: 1;
   }
 }
