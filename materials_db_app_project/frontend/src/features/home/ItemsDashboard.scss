@@ -10,6 +10,8 @@ $global-gap: 1.5rem;
 .filters {
   display: flex;
   gap: $global-gap;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
 .filter-icon {

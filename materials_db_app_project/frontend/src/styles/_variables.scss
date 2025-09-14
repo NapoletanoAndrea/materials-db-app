@@ -4,7 +4,8 @@
 //COLORS//
 
 $light-bg: white;
-$light-mild: rgb(250, 250, 250);
+$light-mild: rgb(243, 243, 243);
+$light-medium: rgb(195, 195, 195);
 $light-heavy: rgb(116, 116, 116);
 $light-main: rgb(197, 57, 57);
 $light-text: #1a1a1a;
@@ -27,6 +28,8 @@ $themes: (
     btn_h-bg: $light-mild,
     btn_h-bc: #7a7a7a,
     input-bg: $light-bg,
+    box1-bg: $light-mild,
+    box1-bc: $light-medium,
   ),
   dark: (
     main: $dark-main,

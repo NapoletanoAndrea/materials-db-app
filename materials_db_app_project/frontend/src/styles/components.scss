@@ -1,0 +1,12 @@
+@use "mixins" as *;
+@use "functions" as *;
+@use "variables" as *;
+
+@include themify($themes) {
+  .box1 {
+    padding: 1rem;
+    border: 1px solid themed("box1-bc");
+    background-color: themed("box1-bg");
+    border-radius: 0.5rem;
+  }
+}

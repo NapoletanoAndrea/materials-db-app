@@ -13,16 +13,21 @@ def get_client():
     return _client
 
 
-def analyze_image(image_url: str) -> dict:
+def analyze_image(image_bytes: bytes) -> dict:
     client = get_client()
 
-    with open(image_url, 'rb') as f:
-        image_bytes = f.read()
-
     prompt = """
-    Analyze this image and respond ONLY in valid JSON with two keys:
-    - "name": a single word or a few words naming the main subject (e.g., "Dog")
-    - "description": a short sentence describing what is happening in the image
+    Analyze this image and respond **ONLY** in valid JSON with the following keys:
+
+    - "name": a single word or short phrase describing the main subject (e.g., "Dog").
+    - "description": a concise sentence describing what is happening in the image.
+    - "condition": one of the following values describing the item's physical condition: "bad", "decent", "good", or "as_new".
+    - "height": the height of the item in millimeters (mm).
+    - "width": the width of the item in millimeters (mm).
+    - "thickness": the thickness of the item in millimeters (mm).
+    - "weight": the weight of the item in grams (g).
+
+    Ensure the output is valid JSON and does not include any extra text or formatting.
     """
 
     response = client.models.generate_content(

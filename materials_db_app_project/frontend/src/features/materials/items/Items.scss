@@ -1,0 +1,12 @@
+@use "../../../styles/mixins" as *;
+@use "../../../styles/variables" as *;
+
+@include themify($themes) {
+  .item-menu {
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    border: 1px solid themed("box1-bc");
+    background-color: themed("bg");
+    padding: 1rem;
+  }
+}

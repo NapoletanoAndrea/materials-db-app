@@ -5,7 +5,7 @@ from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from allauth.account.views import ConfirmEmailView
 
 router = DefaultRouter()
-router.register(r'users', views.UserViewSet)
+router.register(r'users', views.UserViewSet, basename='users')
 
 urlpatterns = [
     path('', include(router.urls)),

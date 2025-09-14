@@ -1,3 +1,5 @@
+import CategoriesFilter from "../materials/filters/CategoriesFilter";
+import ItemsGrid from "../materials/items/ItemsGrid";
 import "./ItemsDashboard.scss";
 
 export function ItemsDashboard() {
@@ -5,8 +7,10 @@ export function ItemsDashboard() {
     <>
       <div className="container">
         <div className="items-dashboard">
-          <div className="filters">Categories</div>
-          <div className="solid-block"></div>
+          <div className="filters">
+            <CategoriesFilter />
+          </div>
+          <ItemsGrid />
         </div>
       </div>
     </>

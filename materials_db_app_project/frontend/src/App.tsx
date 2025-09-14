@@ -19,7 +19,7 @@ import {
   breakpoints,
   useBreakpoint,
 } from "./features/responsiveness/breakpoints";
-import TestUploadPage from "./features/upload/TestUploadPage";
+import TestUploadPage from "./features/materials/upload/TestUploadPage";
 
 const queryClient = new QueryClient();
 

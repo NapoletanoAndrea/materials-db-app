@@ -32,6 +32,7 @@ class Item(models.Model):
     weight = models.FloatField(blank=True, null=True)
     uploaded_by = models.ForeignKey(User, related_name='uploads',
                                     on_delete=models.SET_NULL, blank=True, null=True)
+    image = models.ImageField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     active = models.BooleanField(default=True)
 

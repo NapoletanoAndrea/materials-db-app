@@ -1,4 +1,4 @@
-import axios, { type AxiosInstance } from "axios";
+import axios, { type AxiosInstance, type AxiosRequestConfig } from "axios";
 import { ACCESS_TOKEN } from "../constants";
 import type { KeyStringObject } from "../types/types";
 import i18n from "../features/lang/i18n";
@@ -94,18 +94,23 @@ const apiCall = async (
         if (auth) {
             await tryRefreshAccessToken();
         }
-        const response = await getApi(auth)({
+        const config: AxiosRequestConfig<any> = {
             method: callMethod,
             url: getPath({ path, key, queryParams }),
             data,
-        });
+        };
+        if (data instanceof FormData) {
+            config.headers = {
+                "Content-Type": "multipart/form-data",
+            };
+        }
+        const response = await getApi(auth)(config);
         console.log((log ? log : callMethod) + ":", response.data);
         return response.data;
     } catch (error) {
         return Promise.reject(error);
     }
 };
-
 export const fetchData = (params: ApiFuncParams): Promise<any> => {
     return apiCall("get", params);
 };
