@@ -21,9 +21,12 @@ class AnalyzeImageWithAI(APIView):
         image_bytes = image_file.read()
 
         # Call your AI function with bytes
-        result = analyze_image(image_bytes=image_bytes)
+        result, token_count = analyze_image(image_bytes=image_bytes)
 
-        return Response(result)
+        return Response({
+            "result": result,
+            "token_count": token_count
+        })
 
 
 class ItemsViewSet(viewsets.ModelViewSet):

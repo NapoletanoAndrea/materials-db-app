@@ -13,7 +13,7 @@ def get_client():
     return _client
 
 
-def analyze_image(image_bytes: bytes) -> dict:
+def analyze_image(image_bytes: bytes) -> tuple:
     client = get_client()
 
     prompt = """
@@ -52,4 +52,4 @@ def analyze_image(image_bytes: bytes) -> dict:
         end = json_str.rfind("}")
         result = json.loads(json_str[start:end + 1])
 
-    return result
+    return result, response.usage_metadata.total_token_count

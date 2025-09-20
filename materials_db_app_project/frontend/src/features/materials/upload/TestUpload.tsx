@@ -52,11 +52,14 @@ export default function TestUpload() {
         <div className="test-upload-image-data">
           {!analyzeMutation.isPending && analyzeMutation.data ? (
             <>
-              {Object.entries(analyzeMutation.data).map(([key, value], i) => (
-                <div key={i}>
-                  <span>{key + ": " + value}</span>
-                </div>
-              ))}
+              {Object.entries(analyzeMutation.data.result).map(
+                ([key, value], i) => (
+                  <div key={i}>
+                    <span>{key + ": " + value}</span>
+                  </div>
+                )
+              )}
+              <div>{analyzeMutation.data.token_count}</div>
               <Button
                 onClick={() => {
                   createItemMutation.mutate();

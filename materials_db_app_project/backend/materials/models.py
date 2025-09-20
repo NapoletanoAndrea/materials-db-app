@@ -5,11 +5,14 @@ import uuid
 # Create your models here.
 
 
-class Material(models.Model):
+class Category(models.Model):
     name = models.CharField(max_length=50)
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        verbose_name_plural = "Categories"
 
 
 class Condition(models.TextChoices):
@@ -22,7 +25,7 @@ class Condition(models.TextChoices):
 class Item(models.Model):
     uuid = models.UUIDField(default=uuid.uuid4, unique=True, editable=False)
     name = models.CharField(max_length=100)
-    material = models.ForeignKey(Material, related_name='items',
+    category = models.ForeignKey(Category, related_name='items',
                                  on_delete=models.SET_NULL, blank=True, null=True)
     description = models.TextField()
     condition = models.CharField(choices=Condition.choices, default=Condition.GOOD)

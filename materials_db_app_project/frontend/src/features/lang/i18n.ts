@@ -8,9 +8,9 @@ i18n.use(Backend)
     .use(initReactI18next)
     .init({
         fallbackLng: {
-            default: ["en-GB"],
+            default: ["en"],
         },
-        supportedLngs: ["en-GB", "it-IT"],
+        supportedLngs: ["en", "it"],
         load: "currentOnly",
         debug: false,
 

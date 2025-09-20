@@ -4,15 +4,16 @@ from . import models
 # Register your models here.
 
 
-class MaterialAdmin(admin.ModelAdmin):
-    list_display = ("id", "name")
-    search_fields = ["name"]
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ("id", "name_en", "name_it")
+    search_fields = ["name_en", "name_it"]
+    list_filter = ('name',)
 
 
 class ItemAdmin(admin.ModelAdmin):
-    list_display = ("id", "uuid", "name", "material")
-    search_fields = ("uuid", "name", "material")
+    list_display = ("id", "uuid", "name", "category")
+    search_fields = ("uuid", "name", "category")
 
 
-admin.site.register(models.Material, MaterialAdmin)
+admin.site.register(models.Category, CategoryAdmin)
 admin.site.register(models.Item, ItemAdmin)
