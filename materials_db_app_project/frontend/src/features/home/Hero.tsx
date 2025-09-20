@@ -1,28 +1,39 @@
+import { Heart } from "lucide-react";
 import { APP_NAME } from "../../constants";
-import "./Hero.scss";
-
-function HeroPointLabel({ text = "" }) {
-  return (
-    <div className="flex gap-2 items-center">
-      <div
-        className="rounded-full hero-point"
-      ></div>
-      <span className="hero-point-label">{text}</span>
-    </div>
-  );
-}
 
 export function Hero() {
   return (
-    <div className="hero">
-      <div className="flex flex-col gap-3 items-center">
-        <h1 className="hero-heading">{APP_NAME}</h1>
-        <p className="hero-paragraph">
-          Discover and explore our curated collection of reclaimed materials
-        </p>
-        <div className="flex flex-1 gap-4">
-          <HeroPointLabel text="Sustainable Materials" />
-          <HeroPointLabel text="AI-Powered Analysis" />
+    <div className="w-full py-12">
+      <div className="flex gap-3 items-center justify-around">
+        <div className="flex flex-col gap-6">
+          <h1 className="text-brand text-6xl md:text-8xl font-bold tracking-tight">
+            {APP_NAME}
+          </h1>
+          <p className="text-xl md:text-2xl text-black font-medium">
+            You search, we match.
+          </p>
+        </div>
+        <div className="">
+          <div className="relative">
+            <div className="heart-layer heart-1">
+              <Heart
+                size={80}
+                className="text-brand"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={3}
+              />
+            </div>
+            <div className="heart-layer heart-2">
+              <Heart
+                size={120}
+                className="text-brand"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={2}
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>

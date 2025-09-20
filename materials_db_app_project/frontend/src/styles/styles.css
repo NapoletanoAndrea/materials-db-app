@@ -1,1 +1,44 @@
-@import "tailwindcss"
+@import "tailwindcss";
+
+@theme {
+  --color-brand: hsl(0, 76%, 42%);
+  --color-brand-light: white;
+  --color-brand-dark: #3a36b7;
+
+  --max-width-container: 85.5rem;
+  --padding-container: 1rem;
+}
+
+/* Hero Heart Animation - Outline-based with horizontal mirror */
+.heart-layer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-14.1deg) scaleX(-1);
+  animation-fill-mode: both;
+}
+
+.heart-1 {
+  animation: heartOutlinePulse 2s ease-in-out infinite;
+  z-index: 2;
+}
+
+.heart-2 {
+  animation: heartOutlinePulse 2s ease-in-out infinite 0.8s;
+  z-index: 1;
+}
+
+@keyframes heartOutlinePulse {
+  0% {
+    transform: translate(-50%, -50%) rotate(-14.1deg) scaleX(-1) scale(0.8);
+    stroke-width: 1;
+  }
+  50% {
+    transform: translate(-50%, -50%) rotate(-14.1deg) scaleX(-1) scale(1.1);
+    stroke-width: 4;
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(-14.1deg) scaleX(-1) scale(0.8);
+    stroke-width: 1;
+  }
+}

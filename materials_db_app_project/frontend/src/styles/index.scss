@@ -66,29 +66,29 @@ p {
 
 // HEADINGS //
 
-h1 {
-  @include heading($h1-font-size);
-}
+// h1 {
+//   @include heading($h1-font-size);
+// }
 
-h2 {
-  @include heading($h2-font-size);
-}
+// h2 {
+//   @include heading($h2-font-size);
+// }
 
-h3 {
-  @include heading($h3-font-size);
-}
+// h3 {
+//   @include heading($h3-font-size);
+// }
 
-h4 {
-  @include heading($h4-font-size);
-}
+// h4 {
+//   @include heading($h4-font-size);
+// }
 
-h5 {
-  @include heading($h5-font-size);
-}
+// h5 {
+//   @include heading($h5-font-size);
+// }
 
-h6 {
-  @include heading($h6-font-size);
-}
+// h6 {
+//   @include heading($h6-font-size);
+// }
 
 .btn {
   @include button_style;

@@ -1,5 +1,7 @@
-import "./PageWrapper.scss"
-
-export default function PageWrapper({children}:{children:React.ReactNode}) {
-  return <div className="page-wrapper">{children}</div>;
+export default function PageWrapper({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return <div className="w-screen h-screen min-h-fit">{children}</div>;
 }

@@ -1,3 +1,4 @@
+import Container from "../layout/Container";
 import PageWrapper from "../layout/PageWrapper";
 import { Navbar } from "../nav/Navbar";
 import { Hero } from "./Hero";
@@ -7,8 +8,10 @@ export default function HomePage() {
   return (
     <PageWrapper>
       <Navbar />
-      <Hero />
-      <ItemsDashboard />
+      <Container>
+        <Hero />
+        <ItemsDashboard />
+      </Container>
     </PageWrapper>
   );
 }
