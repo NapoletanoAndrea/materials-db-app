@@ -12,11 +12,4 @@ urlpatterns = [
     path('self/', views.UpdateOwnAccountView.as_view(), name="user-self"),
     path("token/", TokenObtainPairView.as_view(), name="get-token"),
     path("token/refresh/", TokenRefreshView.as_view(), name="refresh"),
-    path("v1/auth/", include("dj_rest_auth.urls")),
-    path('v1/auth/registration/', include('dj_rest_auth.registration.urls')),
-    re_path(
-        r"^api/v1/auth/registration/account-confirm-email/(?P<key>[-:\w]+)/$",
-        ConfirmEmailView.as_view(),
-        name="account_confirm_email",
-    ),
 ]

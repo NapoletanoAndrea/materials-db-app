@@ -9,6 +9,10 @@
   --padding-container: 1rem;
 }
 
+button {
+  cursor: pointer;
+}
+
 /* Hero Heart Animation - Outline-based with horizontal mirror */
 .heart-layer {
   position: absolute;

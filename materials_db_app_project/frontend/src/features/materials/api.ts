@@ -2,6 +2,7 @@ import { toFormData } from "axios";
 import { fetchData, postData } from "../../api/api";
 
 const ITEMS_PATH = "items/";
+const CATEGORIES_PATH = "categories/";
 
 export const analyzeImage = (data: { image: File }) => {
     const fd = new FormData();
@@ -15,4 +16,8 @@ export const fetchItems = () => {
 
 export const createItem = (data: Record<string, any>) => {
     return postData({ path: ITEMS_PATH, data: toFormData(data) });
+};
+
+export const fetchCategories = () => {
+    return fetchData({ path: CATEGORIES_PATH });
 };
