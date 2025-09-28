@@ -3,8 +3,7 @@ export default function Box1({ children }: { children: React.ReactNode }) {
     <div
       className="shadow-sm border
       border-gray-200
-      bg-gray-100 px-4
-        py-4 rounded-lg"
+      bg-gray-50 p-6 rounded-lg"
     >
       {children}
     </div>

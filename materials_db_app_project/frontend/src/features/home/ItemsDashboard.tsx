@@ -1,16 +1,86 @@
+import { Grid, Orbit } from "lucide-react";
 import CategoriesFilter from "../materials/filters/CategoriesFilter";
 import ItemsGrid from "../materials/items/ItemsGrid";
-import "./ItemsDashboard.scss";
+import { useState, type ReactNode } from "react";
+import ItemModal from "../materials/items/ItemModal";
+
+const ViewButton = ({
+  label = "",
+  selected = false,
+  children,
+  onClick = () => {},
+}: {
+  label: string;
+  selected: boolean;
+  children: ReactNode;
+  onClick: () => void;
+}) => {
+  return (
+    <button
+      onClick={onClick}
+      className={`p-2 gap-2 flex items-center rounded-xl transition-colors
+        ${
+          selected
+            ? "bg-brand text-white"
+            : "text-gray-500 hover:bg-gray-100 hover:text-black"
+        }`}
+    >
+      {children}
+      <span className="text-sm font-medium">{label}</span>
+    </button>
+  );
+};
 
 export function ItemsDashboard() {
+  const [viewMode, setViewMode] = useState<"grid" | "explore">("grid");
+  const [selectedItem, setSelectedItem] = useState<any>("");
+
   return (
     <>
-      <div className="items-dashboard">
-        <div className="filters">
+      <div
+        className="grid grid-cols-1 sm:grid-cols-2
+       lg:grid-cols-3 xl:grid-cols-4 gap-6"
+      >
+        <div className="xl:col-span-1 space-y-6">
           <CategoriesFilter />
         </div>
-        <ItemsGrid />
+        <div className="xl:col-span-3">
+          <div className="mb-6 space-y-4">
+            <div className="flex justify-center">
+              <div
+                className="flex items-center gap-2 rounded-xl
+               border border-gray-100
+               p-1 shadow-sm"
+              >
+                <ViewButton
+                  label="Grid View"
+                  selected={viewMode === "grid"}
+                  onClick={() => setViewMode("grid")}
+                >
+                  <Grid width={16} />
+                </ViewButton>
+                <ViewButton
+                  label="Explore"
+                  selected={viewMode === "explore"}
+                  onClick={() => setViewMode("explore")}
+                >
+                  <Orbit width={16} />
+                </ViewButton>
+              </div>
+            </div>
+          </div>
+          {viewMode === "grid" ? (
+            <ItemsGrid onSelect={(item) => setSelectedItem(item)} />
+          ) : null}
+        </div>
       </div>
+      <ItemModal
+        isOpen={selectedItem}
+        onClose={() => {
+          setSelectedItem(null);
+        }}
+        item={selectedItem}
+      />
     </>
   );
 }
