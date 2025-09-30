@@ -1,4 +1,4 @@
-import { X } from "lucide-react";
+import { Ruler, Weight, X } from "lucide-react";
 import ReactDOM from "react-dom";
 
 interface ModalProps {
@@ -48,6 +48,47 @@ export default function ItemModal({
                     <span className="font-mono text-sm">{item.condition}</span>
                   </div>
                 </div>
+              </div>
+              <div className="shrink-0 bg-neutral-300 h-[1px] w-full"></div>
+              <div>
+                <h3 className="text-lg font-semibold text-black mb-3 flex items-center gap-2">
+                  <Ruler />
+                  Dimensions
+                </h3>
+                <div className="grid grid-cols-3 gap-4 text-center">
+                  <div className="bg-neutral-100 p-3 rounded-lg">
+                    <div className="text-sm text-gray-500">Height</div>
+                    <div className="font-semibold">{item.height} mm</div>
+                  </div>
+                  <div className="bg-neutral-100 p-3 rounded-lg">
+                    <div className="text-sm text-gray-500">Width</div>
+                    <div className="font-semibold">{item.width} mm</div>
+                  </div>
+                  <div className="bg-neutral-100 p-3 rounded-lg">
+                    <div className="text-sm text-gray-500">Thickness</div>
+                    <div className="font-semibold">{item.thickness} mm</div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-black mb-3 flex items-center gap-2">
+                  <Weight />
+                  Weight
+                </h3>
+                <div className="bg-gray-100 p-4 rounded-lg text-center">
+                  <div className="text-2xl font-bold text-brand">
+                    {item.weight} g
+                  </div>
+                </div>
+              </div>
+              <div className="shrink-0 bg-neutral-300 h-[1px] w-full"></div>
+              <div id="item-description">
+                <h3 className="text-lg font-semibold text-black mb-3 flex items-center gap-2">
+                  Description
+                </h3>
+                <p className="text-gray-500 leading-relaxed">
+                  {item.description}
+                </p>
               </div>
             </div>
           </div>
