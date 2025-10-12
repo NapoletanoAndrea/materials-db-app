@@ -31,7 +31,7 @@ class Item(models.Model):
     condition = models.CharField(choices=Condition.choices, default=Condition.GOOD)
     height = models.FloatField(blank=True, null=True)
     width = models.FloatField(blank=True, null=True)
-    thickness = models.FloatField(blank=True, null=True)
+    depth = models.FloatField(blank=True, null=True)
     weight = models.FloatField(blank=True, null=True)
     uploaded_by = models.ForeignKey(User, related_name='uploads',
                                     on_delete=models.SET_NULL, blank=True, null=True)

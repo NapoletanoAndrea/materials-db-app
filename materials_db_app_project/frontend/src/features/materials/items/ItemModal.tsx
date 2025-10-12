@@ -65,8 +65,8 @@ export default function ItemModal({
                     <div className="font-semibold">{item.width} mm</div>
                   </div>
                   <div className="bg-neutral-100 p-3 rounded-lg">
-                    <div className="text-sm text-gray-500">Thickness</div>
-                    <div className="font-semibold">{item.thickness} mm</div>
+                    <div className="text-sm text-gray-500">Depth</div>
+                    <div className="font-semibold">{item.depth} mm</div>
                   </div>
                 </div>
               </div>

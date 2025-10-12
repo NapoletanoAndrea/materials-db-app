@@ -20,7 +20,7 @@ export default function TestUpload() {
 
   const createItemMutation = useMutation<any>({
     mutationFn: () => {
-      const data = { ...analyzeMutation.data };
+      const data = { ...analyzeMutation.data.result };
       data["image"] = currentImage;
       return createItem(data);
     },
