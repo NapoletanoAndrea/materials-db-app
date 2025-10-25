@@ -44,7 +44,7 @@ raw_hosts = os.getenv('ALLOWED_HOSTS')
 if raw_hosts == '*':
     ALLOWED_HOSTS = ['*']
 elif raw_hosts:
-    ALLOWED_HOSTS = [host.strip() for host in raw_hosts.split(',')]
+    ALLOWED_HOSTS = ['*']
 else:
     ALLOWED_HOSTS = ['*']
 # ALLOWED_HOSTS = ['*']
