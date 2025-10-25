@@ -40,17 +40,11 @@ if SECRET_KEY.startswith('django-insecure'):
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG').lower() == 'true'
 
-# raw_hosts = os.getenv('ALLOWED_HOSTS')
-# print(f'ALLOWED_HOSTS={raw_hosts}')
-# raw_hosts = os.getenv('ALLOWED_HOSTS', '*').strip()
-# if raw_hosts == '*':
-#     print("first")
-#     raw_hosts = ['*']
-# else:
-#     print("second")
-#     raw_hosts = [h.strip() for h in raw_hosts.split(',')]
-# print(ALLOWED_HOSTS)
-ALLOWED_HOSTS = ['mamacatalogue.com', 'www.mamacatalogue.com']
+raw_hosts = os.getenv('ALLOWED_HOSTS', '*')
+raw_hosts = [h.strip() for h in raw_hosts.split(',')]
+
+ALLOWED_HOSTS = raw_hosts
+print(f'ALLOWED_HOSTS={ALLOWED_HOSTS}')
 
 CSRF_COOKIE_SECURE = os.getenv('CSRF_COOKIE_SECURE', 'False').lower() == 'true'
 SESSION_COOKIE_SECURE = os.getenv('SESSION_COOKIE_SECURE', 'False').lower() == 'true'
