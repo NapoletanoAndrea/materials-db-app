@@ -45,12 +45,12 @@ print(f'ALLOWED_HOSTS={raw_hosts}')
 raw_hosts = os.getenv('ALLOWED_HOSTS', '*').strip()
 if raw_hosts == '*':
     print("first")
-    ALLOWED_HOSTS = ['*']
-# else:
-#     print("second")
-#     ALLOWED_HOSTS = [h.strip() for h in raw_hosts.split(',')]
-print(ALLOWED_HOSTS)
-# ALLOWED_HOSTS = ['*']
+    raw_hosts = ['*']
+else:
+    print("second")
+    raw_hosts = [h.strip() for h in raw_hosts.split(',')]
+# print(ALLOWED_HOSTS)
+ALLOWED_HOSTS = raw_hosts
 
 CSRF_COOKIE_SECURE = os.getenv('CSRF_COOKIE_SECURE', 'False').lower() == 'true'
 SESSION_COOKIE_SECURE = os.getenv('SESSION_COOKIE_SECURE', 'False').lower() == 'true'
