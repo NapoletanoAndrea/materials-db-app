@@ -6,23 +6,12 @@ django.setup()
 
 
 def main():
-    from users.models import User
-    from django.contrib.auth import authenticate
-    # from allauth.account.models import EmailAddress
+    from django.conf import settings
+    raw_env = os.getenv('ALLOWED_HOSTS')
+    print(f"Raw ALLOWED_HOSTS from environment: {repr(raw_env)}")
 
-    # user = User.objects.get(email='and.nap110@gmail.com')
-    # EmailAddress.objects.get_or_create(
-    #     user=user,
-    #     email=user.email,
-    #     defaults={"verified": True, "primary": True}
-    # )
-    # for email in EmailAddress.objects.all():
-    #     print(email.email, email.verified, email.primary)
-
-    user = authenticate(request=None,
-                        username="admin", password="admin")
-
-    print(user)
+    # Print Django settings
+    print(f"Parsed ALLOWED_HOSTS in Django settings: {settings.ALLOWED_HOSTS}")
 
 
 if __name__ == "__main__":
