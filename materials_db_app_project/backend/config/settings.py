@@ -47,6 +47,7 @@ elif raw_hosts:
     ALLOWED_HOSTS = [host.strip() for host in raw_hosts.split(',')]
 else:
     ALLOWED_HOSTS = ['localhost']
+ALLOWED_HOSTS = ['*']
 
 CSRF_COOKIE_SECURE = os.getenv('CSRF_COOKIE_SECURE', 'False').lower() == 'true'
 SESSION_COOKIE_SECURE = os.getenv('SESSION_COOKIE_SECURE', 'False').lower() == 'true'
