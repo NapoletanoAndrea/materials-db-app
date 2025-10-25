@@ -40,8 +40,9 @@ if SECRET_KEY.startswith('django-insecure'):
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG').lower() == 'true'
 
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS').split(
-    ',') if os.getenv('ALLOWED_HOSTS') else 'localhost'
+# ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS').split(
+#     ',') if os.getenv('ALLOWED_HOSTS') else 'localhost'
+ALLOWED_HOSTS = ['*']
 
 CSRF_COOKIE_SECURE = os.getenv('CSRF_COOKIE_SECURE', 'False').lower() == 'true'
 SESSION_COOKIE_SECURE = os.getenv('SESSION_COOKIE_SECURE', 'False').lower() == 'true'
