@@ -41,11 +41,14 @@ if SECRET_KEY.startswith('django-insecure'):
 DEBUG = os.getenv('DEBUG').lower() == 'true'
 
 raw_hosts = os.getenv('ALLOWED_HOSTS')
-print(f'ALLOWED_HOST={raw_hosts}')
-if raw_hosts:
-    ALLOWED_HOSTS = [host.strip() for host in raw_hosts.split(',')]
-else:
+print(f'ALLOWED_HOSTS={raw_hosts}')
+raw_hosts = os.getenv('ALLOWED_HOSTS', '*').strip()
+if raw_hosts == '*':
+    print("first")
     ALLOWED_HOSTS = ['*']
+else:
+    print("second")
+    ALLOWED_HOSTS = [h.strip() for h in raw_hosts.split(',')]
 print(ALLOWED_HOSTS)
 
 CSRF_COOKIE_SECURE = os.getenv('CSRF_COOKIE_SECURE', 'False').lower() == 'true'
