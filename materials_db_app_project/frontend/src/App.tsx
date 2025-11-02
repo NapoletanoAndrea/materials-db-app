@@ -20,6 +20,8 @@ import {
   useBreakpoint,
 } from "./features/responsiveness/breakpoints";
 import TestUploadPage from "./features/materials/upload/TestUploadPage";
+import Button from "./components/Button";
+import DebugLogoutButton from "./components/DebugLogoutButton";
 
 const queryClient = new QueryClient();
 
@@ -47,13 +49,14 @@ export default function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="debug">
-        <DebugBreakpoints />
-        <DebugThemeToggle />
-        <DebugLanguageToggle />
-      </div>
       <AppProvider>
         <BrowserRouter>
+          <div className="debug">
+            <DebugLogoutButton />
+            <DebugBreakpoints />
+            <DebugThemeToggle />
+            <DebugLanguageToggle />
+          </div>
           <Suspense fallback={<LoadingSpinner fullPage={true} />}>
             <Routes>
               <Route
