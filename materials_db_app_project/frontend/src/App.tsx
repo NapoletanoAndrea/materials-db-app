@@ -58,14 +58,6 @@ export default function App() {
           <Suspense fallback={<LoadingSpinner fullPage={true} />}>
             <Routes>
               <Route
-                path="/"
-                element={
-                  <ProtectedRoute>
-                    <HomePage />
-                  </ProtectedRoute>
-                }
-              ></Route>
-              <Route
                 path="/test-upload"
                 element={
                   <ProtectedRoute>
@@ -73,6 +65,7 @@ export default function App() {
                   </ProtectedRoute>
                 }
               ></Route>
+              <Route path="/" element={<HomePage />}></Route>
               <Route path="/login" element={<LoginPage />}></Route>
               <Route path="/register" element={<RegistrationPage />}></Route>
               <Route path="/styles" element={<StyleSheetPage />}></Route>

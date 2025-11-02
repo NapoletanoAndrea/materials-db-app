@@ -44,16 +44,15 @@ raw_hosts = os.getenv('ALLOWED_HOSTS', '*')
 raw_hosts = [h.strip() for h in raw_hosts.split(',')]
 
 ALLOWED_HOSTS = ['mamacatalogue.com', 'www.mamacatalogue.com']
-print(f'ALLOWED_HOSTS={ALLOWED_HOSTS}')
+if DEBUG:
+    ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 CSRF_COOKIE_SECURE = os.getenv('CSRF_COOKIE_SECURE', 'False').lower() == 'true'
 SESSION_COOKIE_SECURE = os.getenv('SESSION_COOKIE_SECURE', 'False').lower() == 'true'
 
-CORS_ALLOW_ALL_ORIGINS = True
-CORS_ALLOW_ALL_CREDENTIALS = True
-
-CORS_ALLOWED_ORIGINS = os.getenv('CORS_CSRF_TRUSTED_ORIGINS', '').split(
-    ',') if os.getenv('CORS_CSRF_TRUSTED_ORIGINS') else []
+CORS_ALLOWED_ORIGINS = os.getenv('CORS_CSRF_TRUSTED_ORIGINS').split(
+    ',') if os.getenv('CORS_CSRF_TRUSTED_ORIGINS') else ['http://localhost:5173',
+                                                         'http://127.0.0.1:5173']
 CSRF_TRUSTED_ORIGINS = CORS_ALLOWED_ORIGINS
 
 # Application definition
