@@ -5,7 +5,7 @@ import ManagerDashboard from "./ManagerDashboard";
 export default function ManagerDashboardPage() {
   return (
     <PageWrapper>
-      <Navbar />
+      <Navbar isManaging={true} />
       <ManagerDashboard />
     </PageWrapper>
   );

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import { APP_NAME } from "../../constants";
-import { BarChart3, FileText, Plus } from "lucide-react";
+import { ACCESS_TOKEN, APP_NAME, REFRESH_TOKEN } from "../../constants";
+import { BarChart3, FileText, LogOut, Plus } from "lucide-react";
 import type { ReactNode } from "react";
 import Container from "../layout/Container";
 
@@ -40,7 +40,7 @@ const NavLink2 = ({
   );
 };
 
-export function Navbar() {
+export function Navbar({ isManaging = false }: { isManaging?: boolean }) {
   return (
     <>
       <div className="py-4 w-full bg-brand-light border-b border-gray-200">
@@ -60,10 +60,24 @@ export function Navbar() {
                 <span>Credits & Contacts</span>
               </NavLink>
             </div>
-            <NavLink2 to="/manager">
-              <Plus className="w-4 h-4" />
-              Add Item
-            </NavLink2>
+            {!isManaging ? (
+              <NavLink2 to="/manager">
+                <Plus className="w-4 h-4" />
+                Add Item
+              </NavLink2>
+            ) : (
+              <div
+                onClick={() => {
+                  localStorage.removeItem(ACCESS_TOKEN);
+                  localStorage.removeItem(REFRESH_TOKEN);
+                }}
+              >
+                <NavLink2 to="/">
+                  <LogOut className="w-4 h-4" />
+                  Log Out
+                </NavLink2>
+              </div>
+            )}
           </div>
         </Container>
       </div>

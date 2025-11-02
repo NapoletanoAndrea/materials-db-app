@@ -7,7 +7,7 @@ import "./styles/LoginForm.scss";
 import { useTranslation } from "react-i18next";
 import Button from "../../components/Button";
 
-export default function LoginForm({ path = "/" }) {
+export default function LoginForm({ path = "/manager" }) {
   const { t } = useTranslation();
 
   const [username, setUsername] = useState("");
