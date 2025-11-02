@@ -30,7 +30,7 @@ class AnalyzeImageWithAI(APIView):
 
 
 class ItemsViewSet(viewsets.ModelViewSet):
-    queryset = models.Item.objects.all()
+    queryset = models.Item.objects.order_by('-created_at')
     serializer_class = serializers.ItemSerializer
     lookup_field = 'uuid'
 

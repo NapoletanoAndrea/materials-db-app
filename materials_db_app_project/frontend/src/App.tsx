@@ -51,7 +51,12 @@ export default function App() {
     <QueryClientProvider client={queryClient}>
       <AppProvider>
         <BrowserRouter>
-          <div className="debug">
+          <div
+            className="debug"
+            style={
+              process.env.NODE_ENV !== "development" ? { display: "none" } : {}
+            }
+          >
             <DebugLogoutButton />
             <DebugBreakpoints />
             <DebugThemeToggle />
