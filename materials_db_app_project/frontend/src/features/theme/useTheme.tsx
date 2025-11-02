@@ -5,7 +5,7 @@ type Theme = "light" | "dark" | "system";
 
 export const useTheme = () => {
   const [theme, setTheme] = useState<Theme>(() => {
-    return (localStorage.getItem(THEME) as Theme) || "system";
+    return (localStorage.getItem(THEME) as Theme) || "light";
   });
 
   // Sync with system if selected

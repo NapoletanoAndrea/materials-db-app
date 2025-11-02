@@ -5,6 +5,7 @@ import "./TestUpload.scss";
 import { useMutation } from "@tanstack/react-query";
 import { analyzeImage, createItem } from "../api";
 import LoadingSpinner from "../../loading/LoadingSpinner";
+import { compressImage } from "../../../utils";
 
 export default function TestUpload() {
   const [currentImage, setCurrentImage] = useState<File | undefined>(undefined);
@@ -76,10 +77,11 @@ export default function TestUpload() {
         style={{ display: "none" }}
         type="file"
         accept="image/*"
-        onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-          if (e.target.files && e.target.files[0]) {
-            setCurrentImage(e.target.files[0]);
-          }
+        onChange={async (e: React.ChangeEvent<HTMLInputElement>) => {
+          const file = e.target.files?.[0];
+          if (!file) return;
+          const compressed = await compressImage(file, 640, 0.7);
+          setCurrentImage(compressed);
         }}
       />
     </PageWrapper>
