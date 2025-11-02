@@ -16,7 +16,7 @@ export const refreshAccessToken = () =>
         auth: false,
     });
 
-export const fetchCurrentUser = () => fetchData({ path: "users/self/" });
+export const fetchCurrentUser = () => fetchData({ path: "self/" });
 
 export const createUser = (data: AuthParams) =>
     postData({ path: "users/", data: data });

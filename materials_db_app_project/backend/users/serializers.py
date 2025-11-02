@@ -8,7 +8,8 @@ from django.utils.translation import gettext_lazy as _
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['id', 'username', 'email', 'password', 'date_joined']
+        fields = ['id', 'username', 'first_name',
+                  'last_name', 'email', 'password', 'date_joined']
         extra_kwargs = {'password': {'write_only': True},
                         'date_joined': {'read_only': True}}
 
