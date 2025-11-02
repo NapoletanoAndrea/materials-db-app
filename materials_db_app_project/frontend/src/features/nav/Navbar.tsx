@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { APP_NAME } from "../../constants";
-import { LogInIcon, BarChart3, FileText, Plus } from "lucide-react";
+import {  BarChart3, FileText, Plus } from "lucide-react";
 import type { ReactNode } from "react";
 import Container from "../layout/Container";
 

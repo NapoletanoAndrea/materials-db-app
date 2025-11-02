@@ -33,7 +33,6 @@ export default function App() {
   const [breakpoint] = useBreakpoint();
 
   useEffect(() => {
-    localStorage.removeItem("theme");
     const body = document.body;
 
     body.classList.remove(...Object.keys(breakpoints));
