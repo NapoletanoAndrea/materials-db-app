@@ -23,6 +23,7 @@ export default function TestUpload() {
     mutationFn: () => {
       const data = { ...analyzeMutation.data.result };
       data["image"] = currentImage;
+      data["active"] = true;
       return createItem(data);
     },
   });

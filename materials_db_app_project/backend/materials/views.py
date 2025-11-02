@@ -32,6 +32,7 @@ class AnalyzeImageWithAI(APIView):
 class ItemsViewSet(viewsets.ModelViewSet):
     queryset = models.Item.objects.all()
     serializer_class = serializers.ItemSerializer
+    lookup_field = 'uuid'
 
     def get_permissions(self):
         if self.request.method in ['GET', 'HEAD', 'OPTIONS']:

@@ -30,10 +30,10 @@ html {
     background-color: themed("btn-bg");
     outline: 1px solid themed("btn-bc");
   }
-  input,
-  textarea {
-    background-color: themed("input-bg");
-  }
+  // input,
+  // textarea {
+  //   background-color: themed("input-bg");
+  // }
   .btn:hover {
     background-color: themed("btn_h-bg");
     // outline: 1px solid themed("btn_h-bc");
@@ -68,8 +68,7 @@ p {
   @include button_style;
 }
 
-input,
-textarea {
+.input {
   padding: $button-padding;
   border-radius: $element-border-radius;
 }

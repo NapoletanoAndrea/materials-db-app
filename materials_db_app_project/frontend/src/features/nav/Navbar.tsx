@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { APP_NAME } from "../../constants";
-import {  BarChart3, FileText, Plus } from "lucide-react";
+import { BarChart3, FileText, Plus } from "lucide-react";
 import type { ReactNode } from "react";
 import Container from "../layout/Container";
 
@@ -14,7 +14,8 @@ const NavLink = ({
   return (
     <Link
       to={to}
-      className="flex gap-2 font-medium hover:text-brand transition-colors duration-100"
+      className="flex gap-2 font-medium hover:text-brand
+      transition-colors duration-100"
     >
       {children}
     </Link>
@@ -59,8 +60,8 @@ export function Navbar() {
                 <span>Credits & Contacts</span>
               </NavLink>
             </div>
-            <NavLink2 to="/login">
-              <Plus className="w-4 h-4"/>
+            <NavLink2 to="/manager">
+              <Plus className="w-4 h-4" />
               Add Item
             </NavLink2>
           </div>

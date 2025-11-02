@@ -37,11 +37,13 @@ export default function LoginForm({ path = "/" }) {
       <h1 className="h5">{t("common.welcome")}</h1>
       <form id="login-form">
         <input
+          className="input"
           placeholder="Username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         ></input>
         <input
+          className="input"
           placeholder="Password"
           type="password"
           value={password}

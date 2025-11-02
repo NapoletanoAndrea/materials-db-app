@@ -1,5 +1,5 @@
 import { toFormData } from "axios";
-import { fetchData, postData } from "../../api/api";
+import { deleteData, fetchData, patchData, postData } from "../../api/api";
 
 const ITEMS_PATH = "items/";
 const CATEGORIES_PATH = "categories/";
@@ -16,6 +16,14 @@ export const fetchItems = () => {
 
 export const createItem = (data: Record<string, any>) => {
     return postData({ path: ITEMS_PATH, data: toFormData(data) });
+};
+
+export const deleteItem = (uuid: string) => {
+    return deleteData({ path: ITEMS_PATH, key: uuid });
+};
+
+export const patchItem = (uuid: string, data: Record<string, any>) => {
+    return patchData({ path: ITEMS_PATH, key: uuid, data: data });
 };
 
 export const fetchCategories = () => {

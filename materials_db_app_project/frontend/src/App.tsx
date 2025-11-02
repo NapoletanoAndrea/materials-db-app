@@ -21,6 +21,7 @@ import {
 } from "./features/responsiveness/breakpoints";
 import TestUploadPage from "./features/materials/upload/TestUploadPage";
 import DebugLogoutButton from "./components/DebugLogoutButton";
+import ManagerDashboardPage from "./features/materials/manager/ManagerDashboardPage";
 
 const queryClient = new QueryClient();
 
@@ -63,6 +64,14 @@ export default function App() {
                 element={
                   <ProtectedRoute>
                     <TestUploadPage />
+                  </ProtectedRoute>
+                }
+              ></Route>
+              <Route
+                path="/manager"
+                element={
+                  <ProtectedRoute>
+                    <ManagerDashboardPage />
                   </ProtectedRoute>
                 }
               ></Route>
