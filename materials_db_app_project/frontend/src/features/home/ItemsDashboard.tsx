@@ -94,13 +94,13 @@ export function ItemsDashboard() {
                 >
                   <Grid width={16} />
                 </ViewButton>
-                <ViewButton
+                {/* <ViewButton
                   label="Explore"
                   selected={viewMode === "explore"}
                   onClick={() => setViewMode("explore")}
                 >
                   <Orbit width={16} />
-                </ViewButton>
+                </ViewButton> */}
               </div>
             </div>
           </div>
