@@ -13,13 +13,6 @@ export default function UploadMaterialsBox() {
 
   const queryClient = useQueryClient();
 
-  const analyzeMutation = useMutation<any>({
-    mutationFn: () => analyzeImage({ image: currentImage as File }),
-    onMutate: () => {
-      setSuccessfullyUploaded(false);
-    },
-  });
-
   const createItemMutation = useMutation<any>({
     mutationFn: () => {
       const data = { ...analyzeMutation.data.result };
@@ -32,6 +25,19 @@ export default function UploadMaterialsBox() {
       queryClient.invalidateQueries({ queryKey: ["items"] });
     },
   });
+
+  const analyzeMutation = useMutation<any>({
+    mutationFn: () => analyzeImage({ image: currentImage as File }),
+    onMutate: () => {
+      setSuccessfullyUploaded(false);
+    }
+  });
+
+  useEffect(() => {
+    if (analyzeMutation.isSuccess) {
+      createItemMutation.mutate();
+    }
+  }, [analyzeMutation.isSuccess]);
 
   useEffect(() => {
     if (currentImage) {
@@ -88,7 +94,7 @@ export default function UploadMaterialsBox() {
           </div>
         </div>
       </div>
-      {analyzeMutation.isPending ? (
+      {analyzeMutation.isPending || createItemMutation.isPending ? (
         <div
           className="mt-2 flex gap-2 text-gray-600 bg-neutral-100 p-4
           rounded"
@@ -96,28 +102,12 @@ export default function UploadMaterialsBox() {
           Analyzing with AI...
           <LoadingSpinner />
         </div>
-      ) : analyzeMutation.isSuccess ? (
+      ) : successfullyUploaded ? (
         <div
           className="mt-2 flex gap-2 text-green-600 bg-green-100 p-4
           rounded justify-between"
         >
-          {!successfullyUploaded
-            ? "Successfuly Analyzed"
-            : "Successfuly Analyzed & Uploaded"}
-          {!createItemMutation.isPending ? (
-            !successfullyUploaded ? (
-              <button
-                className="font-semibold hover:underline"
-                onClick={() => createItemMutation.mutate()}
-              >
-                Upload to Database
-              </button>
-            ) : (
-              <Check />
-            )
-          ) : (
-            <LoadingSpinner />
-          )}
+          Successfuly Uploaded
         </div>
       ) : null}
       <input
