@@ -49,10 +49,7 @@ export default function MaterialsInventory() {
         <div id="title" className="flex items-center justify-between mb-4">
           <h2 className="text-2xl font-bold text-black">Materials Inventory</h2>
         </div>
-        <div
-          id="search"
-          className="rounded-lg border shadow-sm mb-6 animate-fade-in"
-        >
+        <div id="search" className="rounded-lg border shadow-sm mb-6">
           <div className="p-6 pt-6">
             <div className="space-y-4">
               <div className="flex items-center gap-4">
@@ -60,6 +57,7 @@ export default function MaterialsInventory() {
                 <input
                   placeholder="Search materials by name, description, or category..."
                   className="grow"
+                  value={itemsFilter}
                   onChange={(e: any) => {
                     setItemsFilter(e.target.value);
                   }}

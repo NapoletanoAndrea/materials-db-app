@@ -1,4 +1,4 @@
-import { Grid, Orbit } from "lucide-react";
+import { Grid, Orbit, Search } from "lucide-react";
 import CategoriesFilter from "../materials/filters/CategoriesFilter";
 import ItemsGrid from "../materials/items/ItemsGrid";
 import { useState, type ReactNode } from "react";
@@ -34,6 +34,7 @@ const ViewButton = ({
 export function ItemsDashboard() {
   const [viewMode, setViewMode] = useState<"grid" | "explore">("grid");
   const [selectedItem, setSelectedItem] = useState<any>("");
+  const [itemsFilter, setItemsFilter] = useState<string>("");
 
   return (
     <>
@@ -45,6 +46,26 @@ export function ItemsDashboard() {
           <CategoriesFilter />
         </div>
         <div className="lg:col-span-2 xl:col-span-3">
+          <div
+            id="search"
+            className="rounded-lg border shadow-sm mb-6 animate-fade-in"
+          >
+            <div className="p-6 pt-6">
+              <div className="space-y-4">
+                <div className="flex items-center gap-4">
+                  <Search />
+                  <input
+                    placeholder="Search materials by name, description, or category..."
+                    className="grow"
+                    value={itemsFilter}
+                    onChange={(e: any) => {
+                      setItemsFilter(e.target.value);
+                    }}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
           <div className="mb-6 space-y-4">
             <div className="flex justify-center">
               <div
@@ -70,7 +91,10 @@ export function ItemsDashboard() {
             </div>
           </div>
           {viewMode === "grid" ? (
-            <ItemsGrid onSelect={(item) => setSelectedItem(item)} />
+            <ItemsGrid
+              itemsFilter={itemsFilter}
+              onSelect={(item) => setSelectedItem(item)}
+            />
           ) : null}
         </div>
       </div>

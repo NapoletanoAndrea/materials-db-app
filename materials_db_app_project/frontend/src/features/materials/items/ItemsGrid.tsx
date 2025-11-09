@@ -1,17 +1,35 @@
 import { useQuery } from "@tanstack/react-query";
 import { fetchItems } from "../api";
 import Item from "./Item";
-import React from "react";
+import React, { useMemo } from "react";
 
 export default function ItemsGrid({
+  itemsFilter = "",
   onSelect = () => {},
 }: {
+  itemsFilter: string;
   onSelect: (item: any) => void;
 }) {
   const itemsQuery = useQuery<Record<string, any>>({
     queryKey: ["items"],
     queryFn: fetchItems,
   });
+
+  const filteredItems = useMemo(() => {
+    if (!itemsQuery.data) return null;
+
+    if (!itemsFilter) {
+      return itemsQuery.data;
+    }
+
+    return itemsQuery.data.filter((item: Record<string, any>) => {
+      return (
+        item.name.includes(itemsFilter) ||
+        item.description.includes(itemsFilter) ||
+        item.category_name?.includes(itemsFilter)
+      );
+    });
+  }, [itemsQuery.data, itemsFilter]);
 
   if (itemsQuery.isPending) {
     return null;
@@ -22,7 +40,7 @@ export default function ItemsGrid({
       className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3
      xl:grid-cols-4 gap-6"
     >
-      {itemsQuery.data?.map((item: Record<string, any>) => {
+      {filteredItems.map((item: Record<string, any>) => {
         return (
           <React.Fragment key={item.uuid}>
             <Item item={item} onClick={() => onSelect(item)} />

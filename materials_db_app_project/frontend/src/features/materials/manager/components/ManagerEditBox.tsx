@@ -1,4 +1,4 @@
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import ReactDOM from "react-dom";
 import { fetchCategories, fetchItem, patchItem } from "../../api";
 import { useEffect, useMemo, useState } from "react";
@@ -80,6 +80,8 @@ export default function ManagerEditBox({
   onClose: () => void;
   itemId: string;
 }) {
+  const queryClient = useQueryClient();
+
   const [itemData, setItemData] = useState<Record<string, any>>({});
 
   const itemQuery = useQuery({
@@ -93,8 +95,9 @@ export default function ManagerEditBox({
   });
 
   const saveMutation = useMutation({
-    mutationFn: () => patchItem(itemId, itemData),
+    mutationFn: (sendData: Record<string, any>) => patchItem(itemId, sendData),
     onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["items"] });
       onClose();
     },
   });
@@ -272,7 +275,18 @@ export default function ManagerEditBox({
                     Cancel
                   </ItemButton>
                   <ItemButton
-                    onClick={() => saveMutation.mutate()}
+                    onClick={() => {
+                      const sendData: Record<string, any> = {
+                        name: itemData.name,
+                        category: itemData.category,
+                        condition: itemData.condition,
+                        height: itemData.height,
+                        depth: itemData.depth,
+                        weight: itemData.weight,
+                        description: itemData.description,
+                      };
+                      saveMutation.mutate(sendData);
+                    }}
                     className="flex items-center justify-center gap-4
                   bg-green-400 hover:bg-green-700 text-white"
                   >
