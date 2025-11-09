@@ -1,4 +1,4 @@
-import { Grid, Orbit, Search } from "lucide-react";
+import { Grid, Search } from "lucide-react";
 import CategoriesFilter from "../materials/filters/CategoriesFilter";
 import ItemsGrid from "../materials/items/ItemsGrid";
 import { useEffect, useState, type ReactNode } from "react";

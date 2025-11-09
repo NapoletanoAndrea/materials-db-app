@@ -24,9 +24,9 @@ export default function ItemsGrid({
 
     return itemsQuery.data.filter((item: Record<string, any>) => {
       return (
-        item.name.includes(itemsFilter) ||
-        item.description.includes(itemsFilter) ||
-        item.category_name?.includes(itemsFilter)
+        item.name.toLowerCase().includes(itemsFilter.toLowerCase()) ||
+        item.description.toLowerCase().includes(itemsFilter.toLowerCase()) ||
+        item.category_name?.toLowerCase().includes(itemsFilter.toLowerCase())
       );
     });
   }, [itemsQuery.data, itemsFilter]);
