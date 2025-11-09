@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { compressImage } from "../../../../utils";
-import { Check, UploadIcon } from "lucide-react";
+import { UploadIcon } from "lucide-react";
 import { analyzeImage, createItem } from "../../api";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import LoadingSpinner from "../../../loading/LoadingSpinner";
@@ -30,7 +30,7 @@ export default function UploadMaterialsBox() {
     mutationFn: () => analyzeImage({ image: currentImage as File }),
     onMutate: () => {
       setSuccessfullyUploaded(false);
-    }
+    },
   });
 
   useEffect(() => {
