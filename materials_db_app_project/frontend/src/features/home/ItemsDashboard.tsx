@@ -48,7 +48,9 @@ export function ItemsDashboard() {
         <div className="lg:col-span-2 xl:col-span-3">
           <div
             id="search"
-            className="rounded-lg border shadow-sm mb-6 animate-fade-in"
+            className="rounded-lg border border-in border-gray-200
+             shadow-sm mb-6 animate-fade-in has-focus-within:ring-2
+             has-focus-within:ring-brand"
           >
             <div className="p-6 pt-6">
               <div className="space-y-4">
