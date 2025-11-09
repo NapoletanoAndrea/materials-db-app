@@ -1,7 +1,7 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { Edit, Eye, EyeOff, Search, Trash2 } from "lucide-react";
 import { deleteItem, fetchItems, patchItem } from "../../api";
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import LoadingSpinner from "../../../loading/LoadingSpinner";
 import ManagerEditBox from "./ManagerEditBox";
 
@@ -10,6 +10,18 @@ export default function MaterialsInventory() {
   const queryClient = useQueryClient();
 
   const [editMaterial, setEditMaterial] = useState<string>("");
+
+  useEffect(() => {
+    if (editMaterial) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [editMaterial]);
 
   const itemsQuery = useQuery<Record<string, any>>({
     queryKey: ["items"],

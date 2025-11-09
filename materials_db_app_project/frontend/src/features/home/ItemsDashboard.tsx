@@ -1,7 +1,7 @@
 import { Grid, Orbit, Search } from "lucide-react";
 import CategoriesFilter from "../materials/filters/CategoriesFilter";
 import ItemsGrid from "../materials/items/ItemsGrid";
-import { useState, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import ItemModal from "../materials/items/ItemModal";
 
 const ViewButton = ({
@@ -35,6 +35,18 @@ export function ItemsDashboard() {
   const [viewMode, setViewMode] = useState<"grid" | "explore">("grid");
   const [selectedItem, setSelectedItem] = useState<any>("");
   const [itemsFilter, setItemsFilter] = useState<string>("");
+
+  useEffect(() => {
+    if (selectedItem) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [selectedItem]);
 
   return (
     <>
