@@ -49,7 +49,7 @@ export function Navbar({ isManaging = false }: { isManaging?: boolean }) {
             <Link to="/">
               <span className="font-bold text-2xl">{APP_NAME}</span>
             </Link>
-            <div className="flex gap-8">
+            <div className="hidden gap-8">
               <NavLink to="/">Search</NavLink>
               <NavLink to="/data">
                 <BarChart3 />

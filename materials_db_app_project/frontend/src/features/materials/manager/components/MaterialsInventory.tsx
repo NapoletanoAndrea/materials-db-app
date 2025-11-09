@@ -3,10 +3,13 @@ import { Edit, Eye, EyeOff, Search, Trash2 } from "lucide-react";
 import { deleteItem, fetchItems, patchItem } from "../../api";
 import React, { useMemo, useState } from "react";
 import LoadingSpinner from "../../../loading/LoadingSpinner";
+import ManagerEditBox from "./ManagerEditBox";
 
 export default function MaterialsInventory() {
   const [itemsFilter, setItemsFilter] = useState<string>();
   const queryClient = useQueryClient();
+
+  const [editMaterial, setEditMaterial] = useState<string>("");
 
   const itemsQuery = useQuery<Record<string, any>>({
     queryKey: ["items"],
@@ -111,6 +114,7 @@ export default function MaterialsInventory() {
                     </div>
                     <div className="flex gap-2">
                       <button
+                        onClick={() => setEditMaterial(item.uuid)}
                         className="items-center justify-center gap-2 border-gray-200
                         text-sm font-medium transition-colors border border-input
                         h-9 rounded-md px-3 flex flex-1 hover:bg-neutral-100"
@@ -161,6 +165,11 @@ export default function MaterialsInventory() {
           })}
         </div>
       </div>
+      <ManagerEditBox
+        isOpen={editMaterial != ""}
+        onClose={() => setEditMaterial("")}
+        itemId={editMaterial}
+      />
     </>
   );
 }

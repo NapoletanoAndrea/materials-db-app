@@ -13,8 +13,8 @@ export function Hero() {
             You search, we match.
           </p>
         </div>
-        <div className="">
-          <div className="relative">
+        <div>
+          <div className="relative hidden sm:block">
             <div className="heart-layer heart-1">
               <Heart
                 size={80}

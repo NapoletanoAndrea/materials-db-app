@@ -14,6 +14,10 @@ export const fetchItems = () => {
     return fetchData({ path: ITEMS_PATH });
 };
 
+export const fetchItem = (uuid: string) => {
+    return fetchData({ path: ITEMS_PATH, key: uuid });
+};
+
 export const createItem = (data: Record<string, any>) => {
     return postData({ path: ITEMS_PATH, data: toFormData(data) });
 };
