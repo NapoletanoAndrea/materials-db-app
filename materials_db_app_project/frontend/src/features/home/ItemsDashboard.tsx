@@ -80,6 +80,7 @@ export function ItemsDashboard() {
               </div>
             </div>
           </div>
+          <p className="font-semibold mb-4 m-auto w-fit text-2xl">Measurements are estimates and may not always be accurate.</p>
           <div className="mb-6 space-y-4">
             <div className="flex justify-center">
               <div

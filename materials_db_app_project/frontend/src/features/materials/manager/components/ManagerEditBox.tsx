@@ -203,8 +203,10 @@ export default function ManagerEditBox({
                   <label className="text-sm font-medium">Quantity</label>
                   <ItemInput
                     type="number"
-                    value={1}
-                    onChange={() => {}}
+                    value={itemData.quantity != null ? itemData.quantity : 0}
+                    onChange={(e: any) => {
+                      handleChange("quantity", e.target.value);
+                    }}
                   ></ItemInput>
                 </div>
               </div>
@@ -279,6 +281,7 @@ export default function ManagerEditBox({
                       const sendData: Record<string, any> = {
                         name: itemData.name,
                         category: itemData.category,
+                        quantity: itemData.quantity,
                         condition: itemData.condition,
                         height: itemData.height,
                         depth: itemData.depth,

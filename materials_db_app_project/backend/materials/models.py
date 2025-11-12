@@ -27,6 +27,7 @@ class Item(models.Model):
     name = models.CharField(max_length=100)
     category = models.ForeignKey(Category, related_name='items',
                                  on_delete=models.SET_NULL, blank=True, null=True)
+    quantity = models.IntegerField(default=1)
     description = models.TextField()
     condition = models.CharField(choices=Condition.choices, default=Condition.GOOD)
     height = models.FloatField(blank=True, null=True)
