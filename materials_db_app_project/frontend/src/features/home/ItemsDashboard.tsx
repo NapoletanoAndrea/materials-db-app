@@ -51,7 +51,7 @@ export function ItemsDashboard() {
   return (
     <>
       <div
-        className="grid grid-cols-1 md:grid-cols-2
+        className="grid grid-cols-1
        lg:grid-cols-3 xl:grid-cols-4 gap-6"
       >
         <div className="xl:col-span-1 space-y-6">
@@ -80,7 +80,9 @@ export function ItemsDashboard() {
               </div>
             </div>
           </div>
-          <p className="font-semibold mb-4 m-auto w-fit text-2xl">Measurements are estimates and may not always be accurate.</p>
+          <p className="mb-4 m-auto w-fit text-neutral-400 lg:text-lg">
+            Measurements may not be accurate.
+          </p>
           <div className="mb-6 space-y-4">
             <div className="flex justify-center">
               <div
