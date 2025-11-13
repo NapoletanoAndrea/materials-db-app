@@ -10,6 +10,11 @@ input:focus {
   outline: none;
 }
 
+input::placeholder {
+  opacity: 1; /* ensure it’s visible */
+  color: #999; /* make sure color contrasts background */
+}
+
 // input,
 // textarea {
 //   all: unset;
