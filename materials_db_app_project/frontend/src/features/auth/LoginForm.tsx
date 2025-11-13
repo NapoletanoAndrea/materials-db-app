@@ -59,12 +59,12 @@ export default function LoginForm({ path = "/manager" }) {
         >
           {t("auth.login")}
         </Button>
-        <div>
+        {/* <div>
           {t("auth.no_account") + " "}
           <a onClick={() => navigate("/register")}>
             {t("auth.register") + " " + t("common.here")}
           </a>
-        </div>
+        </div> */}
       </form>
     </div>
   );
