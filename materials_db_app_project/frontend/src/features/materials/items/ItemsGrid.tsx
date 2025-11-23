@@ -24,7 +24,7 @@ export default function ItemsGrid({
       return items;
     }
 
-    return itemsQuery.data.filter((item: Record<string, any>) => {
+    return items.filter((item: Record<string, any>) => {
       return (
         item.name.toLowerCase().includes(itemsFilter.toLowerCase()) ||
         item.description.toLowerCase().includes(itemsFilter.toLowerCase()) ||
